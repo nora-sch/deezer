@@ -1,17 +1,52 @@
 let container = document.querySelector(".album-list");
-let listBox = document.createElement("ul");
-listBox.classList.add("list");
-container.append(listBox);
+// let listBox = document.createElement("ul");
+// listBox.classList.add("list");
+// container.append(listBox);
 let displayedAlbums = [];
-
+let artistIdList = [];
 data.forEach((album) => {
+
+  // if artist.id
+  if (!artistIdList.includes(album.artist.id)) {
+    let artistHead = document.createElement("div");
+    artistHead.classList.add('artist-head');
+    container.append(artistHead);
+    let listBox = document.createElement("ul");
+    listBox.classList.add("list");
+    listBox.setAttribute("name", `${album.artist.id}`);
+    container.append(listBox);
+
+    // add small image
+    let imgArtist = "";
+    album.contributors.forEach((contributor) => {
+      if (contributor.id === album.artist.id) {
+        imgArtist = contributor.picture_small;
+      }
+    });
+    if (imgArtist !== "" && imgArtist !== null && imgArtist !== undefined) {
+      artistHead.insertAdjacentHTML(
+        "afterbegin",
+        `<img src="${imgArtist}" class = "img-artist-small">`
+      );
+    } else {
+      //
+    }
+
+    // add H2
+    artistHead.insertAdjacentHTML("beforeend", `<h2>${album.artist.name}</h2>`);
+    artistIdList.push(album.artist.id);
+  }
+
   if (!displayedAlbums.includes(album.album.id)) {
     displayedAlbums.push(album.album.id);
     // titles
     let oneAlbum = document.createElement("li");
-    //add atribute to album
+    // add atribute to album
+    // ??? pas trop bien exposer des ids?
     oneAlbum.setAttribute("name", `${album.album.id}`);
-    listBox.append(oneAlbum);
+    // add album to correct artist list
+    targetBox = document.querySelector(`.list[name = '${album.artist.id}'`);
+    targetBox.append(oneAlbum);
     oneAlbum.insertAdjacentHTML(
       "beforeend",
       ` <img src="${album.album.cover_medium} " alt="${album.album.title}">

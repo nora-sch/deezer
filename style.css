@@ -1,11 +1,10 @@
 .title-list {
-
 }
-.list{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .list li {
   display: flex;
@@ -13,32 +12,51 @@
   justify-content: center;
   align-items: center;
   margin: 10px;
- 
+  position: relative;
 }
 .list li img {
   border-radius: 20px;
   margin: 10px;
+  /* position: relative; */
 }
 
-.hidden{
-    display:none;
+.hidden {
+  display: none;
 }
-
-.play-button{
-  background-color: rgba(128, 128, 128, 0.527);
-  padding:10px;
+.visibility-hidden {
+  visibility: hidden;
+}
+.play-button {
+  background-color: rgba(248, 248, 248, 0.719);
+  padding: 10px;
   border-radius: 25px;
   width: 26px;
   height: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.play-icon, .pause-icon{
+  position: absolute;
+  top: 205px;
+  left: 20px;
   font-size: 25px;
 }
 
-.play-icon{
+.deezer-link {
+  background-color: rgba(248, 248, 248, 0.719);
+  padding: 10px;
+  border-radius: 25px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 205px;
+  left: 75px;
+  color: black;
+  font-size: 25px;
+}
+
+.play-icon {
   margin-left: 4px;
 }

@@ -2,13 +2,15 @@ let container = document.querySelector(".album-list");
 let listBox = document.createElement("ul");
 listBox.classList.add("list");
 container.append(listBox);
-
+let displayedAlbums = [];
 data.forEach((album) => {
-  // titles
-  let audioSource = album.preview;
-  listBox.insertAdjacentHTML(
-    "afterbegin",
-    `<li>
+  if (!displayedAlbums.includes(album.album.id)) {
+    displayedAlbums.push(album.album.id);
+    // titles
+    let audioSource = album.preview;
+    listBox.insertAdjacentHTML(
+      "beforeend",
+      `<li>
         <img src="${album.album.cover_medium} " alt="${album.album.title}">
         ${album.title}
         <div class='play-button' name='${album.preview}'>PLAY</div>
@@ -19,15 +21,16 @@ data.forEach((album) => {
             LINK
         </a>
     </li>`
-  );
-  console.log(album.title);
+    );
+    console.log(album.title);
 
-  // images
-  console.log(album.album.cover_medium);
+    // images
+    console.log(album.album.cover_medium);
 
-  // tracks
-  console.log(album.preview);
-  console.log(album.link);
+    // tracks
+    console.log(album.preview);
+    console.log(album.link);
+  }
 });
 
 const playButtons = document.querySelectorAll(".play-button");

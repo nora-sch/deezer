@@ -5,11 +5,10 @@ let container = document.querySelector(".album-list");
 let displayedAlbums = [];
 let artistIdList = [];
 data.forEach((album) => {
-
   // if artist.id
   if (!artistIdList.includes(album.artist.id)) {
     let artistHead = document.createElement("div");
-    artistHead.classList.add('artist-head');
+    artistHead.classList.add("artist-head");
     container.append(artistHead);
     let listBox = document.createElement("ul");
     listBox.classList.add("list");
@@ -50,14 +49,19 @@ data.forEach((album) => {
     oneAlbum.insertAdjacentHTML(
       "beforeend",
       ` <img src="${album.album.cover_medium} " alt="${album.album.title}">
-        ${album.title}
+        <div class="card-footer">
+          <div class="duration"> ${Math.floor(album.duration / 60)}h${album.duration % 60}min </div>
+          <div class="album-title"> ${album.title} </div>
+        </div>
         <div class='play-button' name='${album.preview}'>
           <i class="fa-solid fa-play play-icon" id='play-${album.preview}'></i>
         </div>
         <audio controls class='play hidden' name='${album.preview}'">
           <source src=" ${album.preview}" type="audio/mp3"> 
         </audio>
-        <a class = 'deezer-link visibility-hidden' target="_blank" href="${album.link}" name="${album.album.id}">
+        <a class = 'deezer-link visibility-hidden' target="_blank" href="${
+          album.link
+        }" name="${album.album.id}">
           <i class="fa-brands fa-deezer"></i>
         </a>
     `

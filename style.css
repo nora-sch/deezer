@@ -1,16 +1,26 @@
-.title-list{
-    display:flex;
+.title-list {
+
+}
+.list{
+    list-style: none;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.title-list li{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+.list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+ 
 }
-.title-list li img{
-   border-radius: 20px;
-    margin: 10px;
+.list li img {
+  border-radius: 20px;
+  margin: 10px;
 }
+
+.hidden{
+    display: none;
+}
+

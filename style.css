@@ -21,6 +21,24 @@
 }
 
 .hidden{
-    display: none;
+    display:none;
 }
 
+.play-button{
+  background-color: rgba(128, 128, 128, 0.527);
+  padding:10px;
+  border-radius: 25px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-icon, .pause-icon{
+  font-size: 25px;
+}
+
+.play-icon{
+  margin-left: 4px;
+}
